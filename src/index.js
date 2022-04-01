@@ -1,10 +1,30 @@
-class Site {}
+class Site {
+    constructor() {
+        this.boards = [];
+    }
 
-class Board {}
+    addBoard(newboard) {
+        if (this.boards.find((element) => element.name === newboard.name)) {
+            throw new Error({ message: 'error' });
+        } else {
+            this.boards.push(newboard);
+        }
+    }
 
-class Article {}
+    findBoardByName(boardName) {
+        return this.boards.find((element) => element.name === boardName);
+    }
+}
 
-class Comment {}
+class Board {
+    constructor(name) {
+        this.name = name;
+    }
+}
+
+class Article { }
+
+class Comment { }
 
 module.exports = {
     Site,
